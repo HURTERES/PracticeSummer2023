@@ -19,6 +19,7 @@ namespace Practice2023
     public partial class FormAuthoriz : Form
     {
         public static int Count = 0;
+        public static int IDUser=0;
         public FormAuthoriz()
         {
             InitializeComponent();
@@ -54,17 +55,19 @@ namespace Practice2023
             try
             {
                 SqlConnection Con = new SqlConnection(TxtCon);
-                SqlCommand Cmd = new SqlCommand($"SELECT        Roles.RoleName, Roles.Id_Role, [User].Id_User, [User].Name, [User].Role, [User].Mail, [User].Pass\r\nFROM            Roles INNER JOIN\r\n                         [User] ON Roles.Id_Role = [User].Role  where [User].Name='{RtbxLogin.Text.Trim()}' and [User].Pass='{RtbxPass.Text.Trim()}'", Con);
+                SqlCommand Cmd = new SqlCommand($"SELECT        Id_User, Name, Role, Mail, Pass, Login, IdPredp \r\nFROM            [User]  where [User].Login='{RtbxLogin.Text.Trim()}' and [User].Pass='{RtbxPass.Text.Trim()}'", Con);
                 Con.Open();
                 SqlDataReader Res = Cmd.ExecuteReader();
                 Res.Read();
                 if (Res.HasRows)
                 {
                     if (Res["Role"].ToString() == "1")
-                    {
+                    {   
                         FormClient Frm = new FormClient();
                         this.Hide();
+                        IDUser = int.Parse(Res["Id_User"].ToString());
                         Frm.ShowDialog();
+                        Count = 0;
                         RtbxLogin.Text = "Введите логин";
                         RtbxPass.Text = "Введите пароль";
                         this.Show();
@@ -75,6 +78,7 @@ namespace Practice2023
                         MessageBox.Show("-");
                     }
                 }
+                Con.Close();
             }
             catch { }
         }
@@ -117,6 +121,9 @@ namespace Practice2023
             this.Hide();
             RtbxLogin.Text = "Введите логин";
             RtbxPass.Text = "Введите пароль";
+            LblForgot.Text = "";
+            LblNonCurrent.Visible = false;
+            Count = 0;
             Frm.ShowDialog();
             this.Show();
             this.ActiveControl = null;

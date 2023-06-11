@@ -29,14 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReg));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.PbxBack = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.LblNonCurrent = new System.Windows.Forms.Label();
             this.LblForgot = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.RtbxPass = new System.Windows.Forms.RichTextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.RtbxLogin = new System.Windows.Forms.RichTextBox();
             this.BtnEnter = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,49 +42,21 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.CmbRole = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxBack)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.LblBack = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.RtbxName = new System.Windows.Forms.RichTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::Practice2023.Properties.Resources.HoneyDew;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1149, 638);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // PbxBack
-            // 
-            this.PbxBack.BackgroundImage = global::Practice2023.Properties.Resources.HoneyDew;
-            this.PbxBack.Image = global::Practice2023.Properties.Resources.Ramka;
-            this.PbxBack.Location = new System.Drawing.Point(0, 73);
-            this.PbxBack.Name = "PbxBack";
-            this.PbxBack.Size = new System.Drawing.Size(1149, 481);
-            this.PbxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbxBack.TabIndex = 1;
-            this.PbxBack.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Location = new System.Drawing.Point(171, 88);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(801, 448);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
             // 
             // LblNonCurrent
             // 
             this.LblNonCurrent.BackColor = System.Drawing.Color.White;
             this.LblNonCurrent.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LblNonCurrent.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.LblNonCurrent.Location = new System.Drawing.Point(295, 436);
+            this.LblNonCurrent.Location = new System.Drawing.Point(295, 470);
             this.LblNonCurrent.Name = "LblNonCurrent";
             this.LblNonCurrent.Size = new System.Drawing.Size(600, 25);
             this.LblNonCurrent.TabIndex = 0;
@@ -118,7 +86,7 @@
             this.RtbxPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RtbxPass.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RtbxPass.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.RtbxPass.Location = new System.Drawing.Point(235, 265);
+            this.RtbxPass.Location = new System.Drawing.Point(235, 320);
             this.RtbxPass.Name = "RtbxPass";
             this.RtbxPass.Size = new System.Drawing.Size(314, 34);
             this.RtbxPass.TabIndex = 23;
@@ -126,20 +94,12 @@
             this.RtbxPass.Enter += new System.EventHandler(this.RtbxPass_Enter);
             this.RtbxPass.Leave += new System.EventHandler(this.RtbxPass_Leave);
             // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(235, 240);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(314, 2);
-            this.panel1.TabIndex = 22;
-            // 
             // RtbxLogin
             // 
             this.RtbxLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RtbxLogin.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RtbxLogin.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.RtbxLogin.Location = new System.Drawing.Point(235, 210);
+            this.RtbxLogin.Location = new System.Drawing.Point(235, 265);
             this.RtbxLogin.Name = "RtbxLogin";
             this.RtbxLogin.Size = new System.Drawing.Size(314, 34);
             this.RtbxLogin.TabIndex = 21;
@@ -153,7 +113,7 @@
             this.BtnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEnter.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnEnter.ForeColor = System.Drawing.Color.White;
-            this.BtnEnter.Location = new System.Drawing.Point(450, 480);
+            this.BtnEnter.Location = new System.Drawing.Point(446, 516);
             this.BtnEnter.Name = "BtnEnter";
             this.BtnEnter.Size = new System.Drawing.Size(293, 34);
             this.BtnEnter.TabIndex = 19;
@@ -178,7 +138,7 @@
             this.RtbxPassConfirm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RtbxPassConfirm.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RtbxPassConfirm.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.RtbxPassConfirm.Location = new System.Drawing.Point(235, 320);
+            this.RtbxPassConfirm.Location = new System.Drawing.Point(235, 375);
             this.RtbxPassConfirm.Name = "RtbxPassConfirm";
             this.RtbxPassConfirm.Size = new System.Drawing.Size(314, 34);
             this.RtbxPassConfirm.TabIndex = 27;
@@ -191,7 +151,7 @@
             this.RtbxMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RtbxMail.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RtbxMail.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.RtbxMail.Location = new System.Drawing.Point(235, 375);
+            this.RtbxMail.Location = new System.Drawing.Point(624, 210);
             this.RtbxMail.Name = "RtbxMail";
             this.RtbxMail.Size = new System.Drawing.Size(314, 34);
             this.RtbxMail.TabIndex = 28;
@@ -227,7 +187,7 @@
             this.CmbRole.Items.AddRange(new object[] {
             "Клиентом",
             "Предпринимателем"});
-            this.CmbRole.Location = new System.Drawing.Point(647, 244);
+            this.CmbRole.Location = new System.Drawing.Point(624, 294);
             this.CmbRole.Name = "CmbRole";
             this.CmbRole.Size = new System.Drawing.Size(242, 34);
             this.CmbRole.TabIndex = 31;
@@ -238,17 +198,105 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(198)))), ((int)(((byte)(172)))));
-            this.label2.Location = new System.Drawing.Point(642, 215);
+            this.label2.Location = new System.Drawing.Point(619, 265);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(141, 26);
             this.label2.TabIndex = 32;
             this.label2.Text = "Вы являетесь:";
             // 
+            // LblBack
+            // 
+            this.LblBack.AutoSize = true;
+            this.LblBack.BackColor = System.Drawing.Color.White;
+            this.LblBack.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LblBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(198)))), ((int)(((byte)(172)))));
+            this.LblBack.Location = new System.Drawing.Point(828, 520);
+            this.LblBack.Name = "LblBack";
+            this.LblBack.Size = new System.Drawing.Size(128, 26);
+            this.LblBack.TabIndex = 33;
+            this.LblBack.Text = "Вернуться ➤";
+            this.LblBack.Click += new System.EventHandler(this.LblBack_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(265, 430);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(689, 18);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "Нажимая “Регистрация”, вы соглашаетесь с  Условиями использования и Политикой кон" +
+    "фиденциальности";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(198)))), ((int)(((byte)(172)))));
+            this.linkLabel1.Location = new System.Drawing.Point(546, 430);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(178, 18);
+            this.linkLabel1.TabIndex = 35;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Условиями использования";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(198)))), ((int)(((byte)(172)))));
+            this.linkLabel2.Location = new System.Drawing.Point(735, 430);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(219, 18);
+            this.linkLabel2.TabIndex = 36;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Политикой конфиденциальности";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Location = new System.Drawing.Point(624, 240);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(314, 2);
+            this.panel5.TabIndex = 31;
+            // 
+            // RtbxName
+            // 
+            this.RtbxName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RtbxName.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RtbxName.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.RtbxName.Location = new System.Drawing.Point(235, 210);
+            this.RtbxName.Name = "RtbxName";
+            this.RtbxName.Size = new System.Drawing.Size(314, 34);
+            this.RtbxName.TabIndex = 37;
+            this.RtbxName.Text = "Введите имя и фамилию";
+            this.RtbxName.Enter += new System.EventHandler(this.RtbxName_Enter);
+            this.RtbxName.Leave += new System.EventHandler(this.RtbxName_Leave);
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(235, 240);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(314, 2);
+            this.panel1.TabIndex = 38;
+            // 
             // FormReg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1149, 638);
+            this.BackgroundImage = global::Practice2023.Properties.Resources.fotor_2023_6_10_22_31_48;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1156, 667);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.RtbxName);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.LblBack);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CmbRole);
             this.Controls.Add(this.panel4);
@@ -259,40 +307,27 @@
             this.Controls.Add(this.LblForgot);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.RtbxPass);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.RtbxLogin);
             this.Controls.Add(this.BtnEnter);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.PbxBack);
-            this.Controls.Add(this.pictureBox1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1165, 677);
-            this.MinimumSize = new System.Drawing.Size(1165, 677);
             this.Name = "FormReg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "СУБД \"OK_Magazine\" > Регистрация";
             this.Load += new System.EventHandler(this.FormReg_Load);
             this.Shown += new System.EventHandler(this.FormReg_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbxBack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox PbxBack;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label LblNonCurrent;
         private System.Windows.Forms.Label LblForgot;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RichTextBox RtbxPass;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox RtbxLogin;
         private System.Windows.Forms.Button BtnEnter;
         private System.Windows.Forms.Label label1;
@@ -302,5 +337,12 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox CmbRole;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblBack;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.RichTextBox RtbxName;
+        private System.Windows.Forms.Panel panel1;
     }
 }

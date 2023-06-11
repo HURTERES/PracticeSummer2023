@@ -53,19 +53,14 @@ namespace Practice2023
            
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            if (RtbxPass.Text != RtbxPassConfirm.Text)
-            {
-                LblNonCurrent.Text = "Пароли не совпадают";
-            }
-        }
+        public int IdNumber = 1000000001;
+        public int Integ;
 
         private void BtnEnter_Click(object sender, EventArgs e)
         {
             SqlConnection Con = new SqlConnection(FormAuthoriz.TxtCon);
             SqlCommand Query = new SqlCommand();
-            if ((RtbxLogin.Text.Trim() != "" && RtbxLogin.Text != "Введите логин") || (RtbxPass.Text.Trim() != "" && RtbxPass.Text != "Введите пароль") || (RtbxPassConfirm.Text.Trim()!="" && RtbxPassConfirm.Text!="Повторите пароль") || (RtbxMail.Text.Trim()!="" && RtbxMail.Text!="Введите e-mail")) 
+            if ((RtbxLogin.Text.Trim() != "" && RtbxLogin.Text != "Введите логин") && (RtbxPass.Text.Trim() != "" && RtbxPass.Text != "Введите пароль") && (RtbxPassConfirm.Text.Trim()!="" && RtbxPassConfirm.Text!="Повторите пароль") && (RtbxMail.Text.Trim()!="" && RtbxMail.Text!="Введите e-mail") && (RtbxName.Text.Trim()!="" && RtbxName.Text!="Введите имя и фамилию")) 
             {
                 try
                 {
@@ -97,14 +92,30 @@ namespace Practice2023
                 }
                 else
                 {
+                    SqlCommand Cmd1 = new SqlCommand($"SELECT max(IdPredp) as \"IdPredp\" FROM  [User]", Con);
+                    Con.Open();
+                    SqlDataReader res = Cmd1.ExecuteReader();
+                    res.Read();
+                    if (res.HasRows)
+                    {
+                        Integ = int.Parse(res["IdPredp"].ToString());
+                        if (IdNumber <= Integ)
+                        {
+                            IdNumber = Integ + 1;
+                        }
+                    }
+                    Con.Close();
+
+
+
                     LblNonCurrent.Text = "";
                     if (CmbRole.SelectedIndex == 0)
                     {
-                        Query = new SqlCommand($"insert into [User](Name, Pass, Mail, Role)\r\nvalues ('{RtbxLogin.Text}', '{RtbxPass.Text}','{RtbxMail.Text}','1')", Con);
+                        Query = new SqlCommand($"insert into [User](Login, Pass, Mail, Role, IdPredp, Name)\r\nvalues ('{RtbxLogin.Text}', '{RtbxPass.Text}','{RtbxMail.Text}','1', '{IdNumber}', '{RtbxName.Text}')", Con);
                     }
                     else if (CmbRole.SelectedIndex == 1)
                     {
-                        Query = new SqlCommand($"insert into [User](Name, Pass, Mail, Role)\r\nvalues ('{RtbxLogin.Text}', '{RtbxPass.Text}','{RtbxMail.Text}','2')", Con);
+                        Query = new SqlCommand($"insert into [User](Login, Pass, Mail, Role, IdPredp, Name)\r\nvalues ('{RtbxLogin.Text}', '{RtbxPass.Text}','{RtbxMail.Text}','2', '{IdNumber}', '{RtbxName.Text}')", Con);
                     }
                     Con.Open();
                     Query.ExecuteReader();
@@ -178,6 +189,37 @@ namespace Practice2023
             if (RtbxMail.Text == "")
             {
                 RtbxMail.Text = "Введите e-mail";
+            }
+        }
+
+        private void LblBack_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://ru.wikipedia.org/wiki/Условия_использования");
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://translated.turbopages.org/proxy_u/en-ru.ru.1e7e3e54-6484defb-b286f095-74722d776562/https/en.wikipedia.org/wiki/Privacy_policy");
+        }
+
+        private void RtbxName_Enter(object sender, EventArgs e)
+        {
+            if (RtbxName.Text == "Введите имя и фамилию")
+            {
+                RtbxName.Text = "";
+            }
+        }
+
+        private void RtbxName_Leave(object sender, EventArgs e)
+        {
+            if (RtbxName.Text == "")
+            {
+                RtbxName.Text = "Введите имя и фамилию";
             }
         }
     }

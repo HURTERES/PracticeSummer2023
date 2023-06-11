@@ -63,9 +63,9 @@ namespace Practice2023.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1643591119_65_phonoteka_org_p_fon_zvezdnoe_nebo_svetloe_71 {
+        internal static System.Drawing.Bitmap Cube {
             get {
-                object obj = ResourceManager.GetObject("1643591119_65-phonoteka-org-p-fon-zvezdnoe-nebo-svetloe-71", resourceCulture);
+                object obj = ResourceManager.GetObject("Cube", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Practice2023.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1643591119_65_phonoteka_org_p_fon_zvezdnoe_nebo_svetloe_711 {
+        internal static System.Drawing.Bitmap Cubeqq {
             get {
-                object obj = ResourceManager.GetObject("1643591119_65-phonoteka-org-p-fon-zvezdnoe-nebo-svetloe-711", resourceCulture);
+                object obj = ResourceManager.GetObject("Cubeqq", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Practice2023.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap HoneyDew {
+        internal static System.Drawing.Bitmap ForAllLogo {
             get {
-                object obj = ResourceManager.GetObject("HoneyDew", resourceCulture);
+                object obj = ResourceManager.GetObject("ForAllLogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Practice2023.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Nebo {
+        internal static System.Drawing.Bitmap fotor_2023_6_10_22_31_48 {
             get {
-                object obj = ResourceManager.GetObject("Nebo", resourceCulture);
+                object obj = ResourceManager.GetObject("fotor_2023-6-10_22_31_48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace Practice2023.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Nebo2 {
+        internal static System.Drawing.Bitmap Joker {
             get {
-                object obj = ResourceManager.GetObject("Nebo2", resourceCulture);
+                object obj = ResourceManager.GetObject("Joker", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace Practice2023.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pngegg {
+        internal static System.Drawing.Bitmap NiceImage {
             get {
-                object obj = ResourceManager.GetObject("pngegg", resourceCulture);
+                object obj = ResourceManager.GetObject("NiceImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace Practice2023.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Ramka {
+        internal static System.Drawing.Bitmap strelka_1_ {
             get {
-                object obj = ResourceManager.GetObject("Ramka", resourceCulture);
+                object obj = ResourceManager.GetObject("strelka(1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

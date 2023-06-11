@@ -82,14 +82,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="DBPracticeDataSet.xsc">
       <DependentUpon>DBPracticeDataSet.xsd</DependentUpon>
     </None>
@@ -105,6 +100,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -115,25 +115,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\HoneyDew.png" />
+    <None Include="Resources\strelka%281%29.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Nebo.jpg" />
+    <None Include="Resources\Cube.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\1643591119_65-phonoteka-org-p-fon-zvezdnoe-nebo-svetloe-71.jpg" />
+    <None Include="Resources\Cubeqq.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\1643591119_65-phonoteka-org-p-fon-zvezdnoe-nebo-svetloe-711.jpg" />
+    <None Include="Resources\fotor_2023-6-10_22_31_48.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Nebo.png" />
+    <None Include="Resources\NiceImage.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pngegg1.png" />
+    <None Include="Resources\ForAllLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Ramka.png" />
+    <Content Include="Resources\Joker.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
