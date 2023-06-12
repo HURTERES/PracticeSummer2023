@@ -26,6 +26,8 @@ namespace Practice2023
 
         private void FormClient_Load_1(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dBPracticeDataSet.User' table. You can move, or remove it, as needed.
+            this.userTableAdapter.Fill(this.dBPracticeDataSet.User);
             try
             {
                 SqlConnection Con = new SqlConnection(FormAuthoriz.TxtCon);
@@ -46,6 +48,12 @@ namespace Practice2023
         private void LblBack_Click(object sender, EventArgs e)
         {
             DialogResult=DialogResult.OK;
+        }
+
+        private void BtnEnter_Click(object sender, EventArgs e)
+        {
+            FormEditUser Frm = new FormEditUser();
+            Frm.ShowDialog();
         }
     }
 }

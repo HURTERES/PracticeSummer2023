@@ -33,25 +33,20 @@ namespace Practice2023
             this.ActiveControl = null;
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-                          
-        }
-
         private void BtnEnter_Click(object sender, EventArgs e)
         {
-            Count++;
-            if (Count >= 3)
+          
+            if ( RtbxLogin.Text!="" && RtbxLogin.Text!="Введите логин")
             {
-                LblForgot.Text = "Восстановить пароль";
-                LblForgot.ForeColor = Color.FromArgb(67, 198, 172);
-                LblForgot.Visible = true;
+                Count++;
+                if (Count >= 3)
+                {
+                    LblForgot.Text = "Восстановить пароль";
+                    LblForgot.ForeColor = Color.FromArgb(67, 198, 172);
+                    LblForgot.Visible = true;
+                }
             }
-            if (RtbxPass.Text == "Введите пароль" || RtbxPass.Text == "")
-            {
-                LblNonCurrent.Text = "Неверный логин или пароль";
-                LblNonCurrent.Visible = true;
-            }
+            LblNonCurrent.Visible = false ;
             try
             {
                 SqlConnection Con = new SqlConnection(TxtCon);
@@ -62,7 +57,7 @@ namespace Practice2023
                 if (Res.HasRows)
                 {
                     if (Res["Role"].ToString() == "1")
-                    {   
+                    {
                         FormClient Frm = new FormClient();
                         this.Hide();
                         IDUser = int.Parse(Res["Id_User"].ToString());
@@ -70,6 +65,7 @@ namespace Practice2023
                         Count = 0;
                         RtbxLogin.Text = "Введите логин";
                         RtbxPass.Text = "Введите пароль";
+                        LblForgot.Visible = false;
                         this.Show();
                         this.ActiveControl = null;
                     }
@@ -77,6 +73,12 @@ namespace Practice2023
                     {
                         MessageBox.Show("-");
                     }
+                }
+                else
+                {
+                        LblNonCurrent.Text = "Неверный логин или пароль";
+                        LblNonCurrent.Visible = true;
+                    
                 }
                 Con.Close();
             }
@@ -156,11 +158,6 @@ namespace Practice2023
             if (e.KeyCode == Keys.Up)
                     RtbxLogin.Focus(); 
             
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
