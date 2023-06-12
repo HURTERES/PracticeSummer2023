@@ -40,6 +40,13 @@
             this.BsTovars = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dBPracticeDataSet = new Practice2023.DBPracticeDataSet();
+            this.idTovarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.articleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countTovarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countInStorageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tovarTableAdapter = new Practice2023.DBPracticeDataSetTableAdapters.TovarTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BsTovars)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -137,13 +144,20 @@
             // 
             // BsTovars
             // 
+            this.BsTovars.DataMember = "Tovar";
             this.BsTovars.DataSource = this.dBPracticeDataSet;
-            this.BsTovars.Position = 0;
             // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idTovarDataGridViewTextBoxColumn,
+            this.titleDataGridViewTextBoxColumn,
+            this.categoryDataGridViewTextBoxColumn,
+            this.articleDataGridViewTextBoxColumn,
+            this.countTovarDataGridViewTextBoxColumn,
+            this.countInStorageDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.BsTovars;
             this.dataGridView1.Location = new System.Drawing.Point(117, 304);
             this.dataGridView1.Name = "dataGridView1";
@@ -154,6 +168,47 @@
             // 
             this.dBPracticeDataSet.DataSetName = "DBPracticeDataSet";
             this.dBPracticeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // idTovarDataGridViewTextBoxColumn
+            // 
+            this.idTovarDataGridViewTextBoxColumn.DataPropertyName = "Id_Tovar";
+            this.idTovarDataGridViewTextBoxColumn.HeaderText = "Id_Tovar";
+            this.idTovarDataGridViewTextBoxColumn.Name = "idTovarDataGridViewTextBoxColumn";
+            this.idTovarDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            // 
+            // articleDataGridViewTextBoxColumn
+            // 
+            this.articleDataGridViewTextBoxColumn.DataPropertyName = "Article";
+            this.articleDataGridViewTextBoxColumn.HeaderText = "Article";
+            this.articleDataGridViewTextBoxColumn.Name = "articleDataGridViewTextBoxColumn";
+            // 
+            // countTovarDataGridViewTextBoxColumn
+            // 
+            this.countTovarDataGridViewTextBoxColumn.DataPropertyName = "CountTovar";
+            this.countTovarDataGridViewTextBoxColumn.HeaderText = "CountTovar";
+            this.countTovarDataGridViewTextBoxColumn.Name = "countTovarDataGridViewTextBoxColumn";
+            // 
+            // countInStorageDataGridViewTextBoxColumn
+            // 
+            this.countInStorageDataGridViewTextBoxColumn.DataPropertyName = "CountInStorage";
+            this.countInStorageDataGridViewTextBoxColumn.HeaderText = "CountInStorage";
+            this.countInStorageDataGridViewTextBoxColumn.Name = "countInStorageDataGridViewTextBoxColumn";
+            // 
+            // tovarTableAdapter
+            // 
+            this.tovarTableAdapter.ClearBeforeFill = true;
             // 
             // FormClient
             // 
@@ -200,5 +255,12 @@
         private System.Windows.Forms.BindingSource BsTovars;
         private System.Windows.Forms.DataGridView dataGridView1;
         private DBPracticeDataSet dBPracticeDataSet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idTovarDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn articleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countTovarDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countInStorageDataGridViewTextBoxColumn;
+        private DBPracticeDataSetTableAdapters.TovarTableAdapter tovarTableAdapter;
     }
 }

@@ -26,8 +26,8 @@ namespace Practice2023
 
         private void FormClient_Load_1(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dBPracticeDataSet.User' table. You can move, or remove it, as needed.
-            this.userTableAdapter.Fill(this.dBPracticeDataSet.User);
+            // TODO: This line of code loads data into the 'dBPracticeDataSet.Tovar' table. You can move, or remove it, as needed.
+            this.tovarTableAdapter.Fill(this.dBPracticeDataSet.Tovar);
             try
             {
                 SqlConnection Con = new SqlConnection(FormAuthoriz.TxtCon);

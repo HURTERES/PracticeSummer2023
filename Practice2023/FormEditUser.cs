@@ -64,5 +64,19 @@ namespace Practice2023
                 this.Close();
             }
         }
+
+        private void CmbCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CmbCheck.Checked)
+            {
+                RtbxPassOld.UseSystemPasswordChar = false;
+                RtbxPassNew.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                RtbxPassOld.UseSystemPasswordChar = true;
+                RtbxPassNew.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

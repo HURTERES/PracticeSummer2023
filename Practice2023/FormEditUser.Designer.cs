@@ -37,9 +37,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.RtbxMail = new System.Windows.Forms.RichTextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.RtbxPassOld = new System.Windows.Forms.RichTextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.RtbxPassNew = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,6 +46,9 @@
             this.BtnSave = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.LblNonCurrent = new System.Windows.Forms.Label();
+            this.RtbxPassOld = new System.Windows.Forms.TextBox();
+            this.RtbxPassNew = new System.Windows.Forms.TextBox();
+            this.CmbCheck = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // panel1
@@ -127,17 +128,6 @@
             this.panel4.Size = new System.Drawing.Size(314, 2);
             this.panel4.TabIndex = 47;
             // 
-            // RtbxPassOld
-            // 
-            this.RtbxPassOld.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RtbxPassOld.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RtbxPassOld.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.RtbxPassOld.Location = new System.Drawing.Point(654, 304);
-            this.RtbxPassOld.Name = "RtbxPassOld";
-            this.RtbxPassOld.Size = new System.Drawing.Size(314, 34);
-            this.RtbxPassOld.TabIndex = 46;
-            this.RtbxPassOld.Text = "";
-            // 
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -145,17 +135,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(314, 2);
             this.panel5.TabIndex = 49;
-            // 
-            // RtbxPassNew
-            // 
-            this.RtbxPassNew.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RtbxPassNew.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RtbxPassNew.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.RtbxPassNew.Location = new System.Drawing.Point(653, 394);
-            this.RtbxPassNew.Name = "RtbxPassNew";
-            this.RtbxPassNew.Size = new System.Drawing.Size(314, 34);
-            this.RtbxPassNew.TabIndex = 48;
-            this.RtbxPassNew.Text = "";
             // 
             // label2
             // 
@@ -228,7 +207,7 @@
             this.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSave.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnSave.ForeColor = System.Drawing.Color.White;
-            this.BtnSave.Location = new System.Drawing.Point(275, 503);
+            this.BtnSave.Location = new System.Drawing.Point(278, 523);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(293, 34);
             this.BtnSave.TabIndex = 55;
@@ -242,7 +221,7 @@
             this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancel.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnCancel.ForeColor = System.Drawing.Color.White;
-            this.BtnCancel.Location = new System.Drawing.Point(659, 503);
+            this.BtnCancel.Location = new System.Drawing.Point(662, 523);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(293, 34);
             this.BtnCancel.TabIndex = 56;
@@ -255,11 +234,47 @@
             this.LblNonCurrent.BackColor = System.Drawing.Color.White;
             this.LblNonCurrent.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LblNonCurrent.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.LblNonCurrent.Location = new System.Drawing.Point(312, 454);
+            this.LblNonCurrent.Location = new System.Drawing.Point(315, 474);
             this.LblNonCurrent.Name = "LblNonCurrent";
             this.LblNonCurrent.Size = new System.Drawing.Size(600, 25);
             this.LblNonCurrent.TabIndex = 57;
             this.LblNonCurrent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // RtbxPassOld
+            // 
+            this.RtbxPassOld.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RtbxPassOld.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            this.RtbxPassOld.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.RtbxPassOld.Location = new System.Drawing.Point(654, 304);
+            this.RtbxPassOld.Name = "RtbxPassOld";
+            this.RtbxPassOld.Size = new System.Drawing.Size(314, 27);
+            this.RtbxPassOld.TabIndex = 58;
+            this.RtbxPassOld.UseSystemPasswordChar = true;
+            // 
+            // RtbxPassNew
+            // 
+            this.RtbxPassNew.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RtbxPassNew.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            this.RtbxPassNew.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.RtbxPassNew.Location = new System.Drawing.Point(653, 394);
+            this.RtbxPassNew.Name = "RtbxPassNew";
+            this.RtbxPassNew.Size = new System.Drawing.Size(314, 27);
+            this.RtbxPassNew.TabIndex = 59;
+            this.RtbxPassNew.UseSystemPasswordChar = true;
+            // 
+            // CmbCheck
+            // 
+            this.CmbCheck.AutoSize = true;
+            this.CmbCheck.BackColor = System.Drawing.Color.White;
+            this.CmbCheck.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CmbCheck.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.CmbCheck.Location = new System.Drawing.Point(659, 440);
+            this.CmbCheck.Name = "CmbCheck";
+            this.CmbCheck.Size = new System.Drawing.Size(135, 22);
+            this.CmbCheck.TabIndex = 60;
+            this.CmbCheck.Text = "Показать пароли";
+            this.CmbCheck.UseVisualStyleBackColor = false;
+            this.CmbCheck.CheckedChanged += new System.EventHandler(this.CmbCheck_CheckedChanged);
             // 
             // FormEditUser
             // 
@@ -268,6 +283,9 @@
             this.BackgroundImage = global::Practice2023.Properties.Resources.fotor_2023_6_10_22_31_48;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1223, 688);
+            this.Controls.Add(this.CmbCheck);
+            this.Controls.Add(this.RtbxPassNew);
+            this.Controls.Add(this.RtbxPassOld);
             this.Controls.Add(this.LblNonCurrent);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnSave);
@@ -277,9 +295,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.RtbxPassNew);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.RtbxPassOld);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.RtbxMail);
             this.Controls.Add(this.panel2);
@@ -311,9 +327,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RichTextBox RtbxMail;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.RichTextBox RtbxPassOld;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.RichTextBox RtbxPassNew;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -322,5 +336,8 @@
         private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Label LblNonCurrent;
+        private System.Windows.Forms.TextBox RtbxPassOld;
+        private System.Windows.Forms.TextBox RtbxPassNew;
+        private System.Windows.Forms.CheckBox CmbCheck;
     }
 }
