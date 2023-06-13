@@ -57,11 +57,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormClient.cs">
+    <Compile Include="FormAddTovar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormClient.Designer.cs">
-      <DependentUpon>FormClient.cs</DependentUpon>
+    <Compile Include="FormAddTovar.Designer.cs">
+      <DependentUpon>FormAddTovar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBusiness.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBusiness.Designer.cs">
+      <DependentUpon>FormBusiness.cs</DependentUpon>
     </Compile>
     <Compile Include="FormEditUser.cs">
       <SubType>Form</SubType>
@@ -80,8 +86,11 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormClient.resx">
-      <DependentUpon>FormClient.cs</DependentUpon>
+    <EmbeddedResource Include="FormAddTovar.resx">
+      <DependentUpon>FormAddTovar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBusiness.resx">
+      <DependentUpon>FormBusiness.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditUser.resx">
       <DependentUpon>FormEditUser.cs</DependentUpon>

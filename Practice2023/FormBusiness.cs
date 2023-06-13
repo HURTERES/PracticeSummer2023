@@ -27,6 +27,7 @@ namespace Practice2023
         private void FormClient_Load_1(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dBPracticeDataSet.Tovar' table. You can move, or remove it, as needed.
+            DgvTovars.AllowUserToResizeColumns = false;
             this.tovarTableAdapter.Fill(this.dBPracticeDataSet.Tovar);
             try
             {
@@ -54,6 +55,33 @@ namespace Practice2023
         {
             FormEditUser Frm = new FormEditUser();
             Frm.ShowDialog();
+        }
+
+        private void RtbxFilter_Enter(object sender, EventArgs e)
+        {
+            if (RtbxFilter.Text == "Фильтр по названию")
+            {
+               RtbxFilter.Text = "";
+            }
+        }
+
+        private void RtbxFilter_Leave(object sender, EventArgs e)
+        {
+            if (RtbxFilter.Text == "")
+            {
+                RtbxFilter.Text = "Фильтр по названию";
+            }
+        }
+
+        private void RtbxFilter_TextChanged(object sender, EventArgs e)
+        {
+            if(RtbxFilter.Text!="Фильтр по названию")
+            BsTovars.Filter = $"Title like '%{RtbxFilter.Text}%'";
+        }
+
+        private void FormClient_Click(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
         }
     }
 }
