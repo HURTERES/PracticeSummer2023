@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddTovar));
-            this.label1 = new System.Windows.Forms.Label();
+            this.LblForm = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.RtbxName = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.LblHowMany = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.RtbxArticle = new System.Windows.Forms.RichTextBox();
             this.CmbCategory = new System.Windows.Forms.ComboBox();
@@ -49,19 +49,20 @@
             this.LblNonCurrent = new System.Windows.Forms.Label();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // LblForm
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label1.Location = new System.Drawing.Point(705, 116);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(308, 67);
-            this.label1.TabIndex = 42;
-            this.label1.Text = "Add Product";
+            this.LblForm.AutoSize = true;
+            this.LblForm.BackColor = System.Drawing.Color.White;
+            this.LblForm.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LblForm.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.LblForm.Location = new System.Drawing.Point(705, 116);
+            this.LblForm.Name = "LblForm";
+            this.LblForm.Size = new System.Drawing.Size(308, 67);
+            this.LblForm.TabIndex = 42;
+            this.LblForm.Text = "Add Product";
             // 
             // label2
             // 
@@ -105,7 +106,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(230, 25);
             this.label3.TabIndex = 54;
-            this.label3.Text = "Артикль:";
+            this.label3.Text = "Артикул:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
@@ -121,18 +122,18 @@
             this.label5.Text = "Категория:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label6
+            // LblHowMany
             // 
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(198)))), ((int)(((byte)(172)))));
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label6.Location = new System.Drawing.Point(712, 364);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(225, 25);
-            this.label6.TabIndex = 57;
-            this.label6.Text = "Добавить на склад(ед):";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LblHowMany.BackColor = System.Drawing.Color.White;
+            this.LblHowMany.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LblHowMany.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(198)))), ((int)(((byte)(172)))));
+            this.LblHowMany.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LblHowMany.Location = new System.Drawing.Point(712, 364);
+            this.LblHowMany.Name = "LblHowMany";
+            this.LblHowMany.Size = new System.Drawing.Size(225, 25);
+            this.LblHowMany.TabIndex = 57;
+            this.LblHowMany.Text = "Добавить на склад(ед):";
+            this.LblHowMany.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -202,6 +203,7 @@
             this.RtbxCountTovar.Size = new System.Drawing.Size(314, 34);
             this.RtbxCountTovar.TabIndex = 63;
             this.RtbxCountTovar.Text = "";
+            this.RtbxCountTovar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RtbxCountTovar_KeyPress);
             // 
             // RtbxInStorage
             // 
@@ -275,7 +277,7 @@
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(293, 34);
             this.BtnCancel.TabIndex = 70;
-            this.BtnCancel.Text = "Отменить изменения";
+            this.BtnCancel.Text = "Отменить операцию";
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
@@ -289,9 +291,24 @@
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(293, 34);
             this.BtnSave.TabIndex = 69;
-            this.BtnSave.Text = "Сохранить изменения";
+            this.BtnSave.Text = "Добавить товар";
             this.BtnSave.UseVisualStyleBackColor = false;
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // BtnDelete
+            // 
+            this.BtnDelete.BackColor = System.Drawing.SystemColors.GrayText;
+            this.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnDelete.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnDelete.ForeColor = System.Drawing.Color.White;
+            this.BtnDelete.Location = new System.Drawing.Point(666, 214);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(293, 34);
+            this.BtnDelete.TabIndex = 72;
+            this.BtnDelete.Text = "Удалить товар";
+            this.BtnDelete.UseVisualStyleBackColor = false;
+            this.BtnDelete.Visible = false;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // FormAddTovar
             // 
@@ -300,6 +317,7 @@
             this.BackgroundImage = global::Practice2023.Properties.Resources.fotor_2023_6_10_22_31_48;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1228, 691);
+            this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.LblNonCurrent);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnSave);
@@ -313,13 +331,13 @@
             this.Controls.Add(this.CmbCategory);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.RtbxArticle);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.LblHowMany);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.RtbxName);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LblForm);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -338,13 +356,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LblForm;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox RtbxName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RichTextBox RtbxArticle;
         private System.Windows.Forms.ComboBox CmbCategory;
@@ -358,5 +375,7 @@
         private System.Windows.Forms.Label LblNonCurrent;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnSave;
+        public System.Windows.Forms.Label LblHowMany;
+        private System.Windows.Forms.Button BtnDelete;
     }
 }

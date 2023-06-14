@@ -43,11 +43,6 @@
             this.BsTovars = new System.Windows.Forms.BindingSource(this.components);
             this.dBPracticeDataSet = new Practice2023.DBPracticeDataSet();
             this.DgvTovars = new System.Windows.Forms.DataGridView();
-            this.tovarTableAdapter = new Practice2023.DBPracticeDataSetTableAdapters.TovarTableAdapter();
-            this.RtbxFilter = new System.Windows.Forms.RichTextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnFilter = new System.Windows.Forms.Button();
-            this.TovarsBS = new System.Windows.Forms.BindingSource(this.components);
             this.idTovarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +50,13 @@
             this.countTovarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countInStorageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.whoseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TovarsBS = new System.Windows.Forms.BindingSource(this.components);
+            this.tovarTableAdapter = new Practice2023.DBPracticeDataSetTableAdapters.TovarTableAdapter();
+            this.RtbxFilter = new System.Windows.Forms.RichTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnFilter = new System.Windows.Forms.Button();
+            this.BtnEditTovar = new System.Windows.Forms.Button();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BsTovars)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBPracticeDataSet)).BeginInit();
@@ -144,7 +146,7 @@
             this.BtnPlace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnPlace.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnPlace.ForeColor = System.Drawing.Color.White;
-            this.BtnPlace.Location = new System.Drawing.Point(117, 192);
+            this.BtnPlace.Location = new System.Drawing.Point(117, 135);
             this.BtnPlace.Name = "BtnPlace";
             this.BtnPlace.Size = new System.Drawing.Size(420, 34);
             this.BtnPlace.TabIndex = 35;
@@ -213,54 +215,10 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DgvTovars.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DgvTovars.RowHeadersVisible = false;
-            this.DgvTovars.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.DgvTovars.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvTovars.Size = new System.Drawing.Size(977, 420);
+            this.DgvTovars.Size = new System.Drawing.Size(1152, 420);
             this.DgvTovars.TabIndex = 36;
-            // 
-            // tovarTableAdapter
-            // 
-            this.tovarTableAdapter.ClearBeforeFill = true;
-            // 
-            // RtbxFilter
-            // 
-            this.RtbxFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RtbxFilter.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RtbxFilter.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.RtbxFilter.Location = new System.Drawing.Point(126, 246);
-            this.RtbxFilter.Name = "RtbxFilter";
-            this.RtbxFilter.Size = new System.Drawing.Size(344, 34);
-            this.RtbxFilter.TabIndex = 37;
-            this.RtbxFilter.Text = "Фильтр по названию";
-            this.RtbxFilter.TextChanged += new System.EventHandler(this.RtbxFilter_TextChanged);
-            this.RtbxFilter.Enter += new System.EventHandler(this.RtbxFilter_Enter);
-            this.RtbxFilter.Leave += new System.EventHandler(this.RtbxFilter_Leave);
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(126, 278);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(340, 2);
-            this.panel1.TabIndex = 38;
-            // 
-            // BtnFilter
-            // 
-            this.BtnFilter.BackColor = System.Drawing.SystemColors.GrayText;
-            this.BtnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnFilter.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnFilter.ForeColor = System.Drawing.Color.White;
-            this.BtnFilter.Location = new System.Drawing.Point(476, 246);
-            this.BtnFilter.Name = "BtnFilter";
-            this.BtnFilter.Size = new System.Drawing.Size(61, 34);
-            this.BtnFilter.TabIndex = 39;
-            this.BtnFilter.Text = "…";
-            this.BtnFilter.UseVisualStyleBackColor = false;
-            // 
-            // TovarsBS
-            // 
-            this.TovarsBS.DataMember = "Tovar";
-            this.TovarsBS.DataSource = this.dBPracticeDataSet;
+            this.DgvTovars.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTovars_CellClick);
             // 
             // idTovarDataGridViewTextBoxColumn
             // 
@@ -318,6 +276,69 @@
             this.whoseDataGridViewTextBoxColumn.ReadOnly = true;
             this.whoseDataGridViewTextBoxColumn.Visible = false;
             // 
+            // TovarsBS
+            // 
+            this.TovarsBS.DataMember = "Tovar";
+            this.TovarsBS.DataSource = this.dBPracticeDataSet;
+            // 
+            // tovarTableAdapter
+            // 
+            this.tovarTableAdapter.ClearBeforeFill = true;
+            // 
+            // RtbxFilter
+            // 
+            this.RtbxFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RtbxFilter.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RtbxFilter.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.RtbxFilter.Location = new System.Drawing.Point(126, 246);
+            this.RtbxFilter.Name = "RtbxFilter";
+            this.RtbxFilter.Size = new System.Drawing.Size(344, 34);
+            this.RtbxFilter.TabIndex = 37;
+            this.RtbxFilter.Text = "Поиск по названию";
+            this.RtbxFilter.TextChanged += new System.EventHandler(this.RtbxFilter_TextChanged);
+            this.RtbxFilter.Enter += new System.EventHandler(this.RtbxFilter_Enter);
+            this.RtbxFilter.Leave += new System.EventHandler(this.RtbxFilter_Leave);
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(126, 278);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(340, 2);
+            this.panel1.TabIndex = 38;
+            // 
+            // BtnFilter
+            // 
+            this.BtnFilter.BackColor = System.Drawing.SystemColors.GrayText;
+            this.BtnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnFilter.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnFilter.ForeColor = System.Drawing.Color.White;
+            this.BtnFilter.Location = new System.Drawing.Point(476, 246);
+            this.BtnFilter.Name = "BtnFilter";
+            this.BtnFilter.Size = new System.Drawing.Size(61, 34);
+            this.BtnFilter.TabIndex = 39;
+            this.BtnFilter.Text = "…";
+            this.BtnFilter.UseVisualStyleBackColor = false;
+            // 
+            // BtnEditTovar
+            // 
+            this.BtnEditTovar.BackColor = System.Drawing.SystemColors.GrayText;
+            this.BtnEditTovar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEditTovar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnEditTovar.ForeColor = System.Drawing.Color.White;
+            this.BtnEditTovar.Location = new System.Drawing.Point(117, 192);
+            this.BtnEditTovar.Name = "BtnEditTovar";
+            this.BtnEditTovar.Size = new System.Drawing.Size(420, 34);
+            this.BtnEditTovar.TabIndex = 40;
+            this.BtnEditTovar.Text = "Редактировать товар";
+            this.BtnEditTovar.UseVisualStyleBackColor = false;
+            this.BtnEditTovar.Click += new System.EventHandler(this.BtnEditTovar_Click);
+            // 
+            // Timer
+            // 
+            this.Timer.Enabled = true;
+            this.Timer.Interval = 1000;
+            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,6 +346,7 @@
             this.BackgroundImage = global::Practice2023.Properties.Resources.ForAllLogo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1384, 779);
+            this.Controls.Add(this.BtnEditTovar);
             this.Controls.Add(this.BtnFilter);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.RtbxFilter);
@@ -366,7 +388,6 @@
         private System.Windows.Forms.Label LblBack;
         private System.Windows.Forms.Button BtnPlace;
         private System.Windows.Forms.BindingSource BsTovars;
-        private System.Windows.Forms.DataGridView DgvTovars;
         private DBPracticeDataSet dBPracticeDataSet;
         private DBPracticeDataSetTableAdapters.TovarTableAdapter tovarTableAdapter;
         private System.Windows.Forms.RichTextBox RtbxFilter;
@@ -380,5 +401,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn countTovarDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countInStorageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn whoseDataGridViewTextBoxColumn;
+        public System.Windows.Forms.DataGridView DgvTovars;
+        private System.Windows.Forms.Button BtnEditTovar;
+        private System.Windows.Forms.Timer Timer;
     }
 }
