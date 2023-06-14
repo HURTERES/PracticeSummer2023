@@ -111,7 +111,7 @@ namespace Practice2023
                     LblNonCurrent.Text = "";
                     if (CmbRole.SelectedIndex == 0)
                     {
-                        Query = new SqlCommand($"insert into [User](Login, Pass, Mail, Role, IdPredp, Name)\r\nvalues ('{RtbxLogin.Text}', '{RtbxPass.Text}','{RtbxMail.Text}','1', '{IdNumber}', '{RtbxName.Text}')", Con);
+                        Query = new SqlCommand($"insert into [User](Login, Pass, Mail, Role, Name)\r\nvalues ('{RtbxLogin.Text}', '{RtbxPass.Text}','{RtbxMail.Text}','1','{RtbxName.Text}')", Con);
                     }
                     else if (CmbRole.SelectedIndex == 1)
                     {

@@ -37,26 +37,29 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LblID = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BtnEnter = new System.Windows.Forms.Button();
+            this.BtnEditProfile = new System.Windows.Forms.Button();
             this.LblBack = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnPlace = new System.Windows.Forms.Button();
             this.BsTovars = new System.Windows.Forms.BindingSource(this.components);
             this.dBPracticeDataSet = new Practice2023.DBPracticeDataSet();
             this.DgvTovars = new System.Windows.Forms.DataGridView();
             this.tovarTableAdapter = new Practice2023.DBPracticeDataSetTableAdapters.TovarTableAdapter();
+            this.RtbxFilter = new System.Windows.Forms.RichTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnFilter = new System.Windows.Forms.Button();
+            this.TovarsBS = new System.Windows.Forms.BindingSource(this.components);
             this.idTovarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countTovarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countInStorageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RtbxFilter = new System.Windows.Forms.RichTextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnFilter = new System.Windows.Forms.Button();
+            this.whoseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BsTovars)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBPracticeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTovars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TovarsBS)).BeginInit();
             this.SuspendLayout();
             // 
             // LblName
@@ -108,19 +111,19 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // BtnEnter
+            // BtnEditProfile
             // 
-            this.BtnEnter.BackColor = System.Drawing.SystemColors.GrayText;
-            this.BtnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEnter.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnEnter.ForeColor = System.Drawing.Color.White;
-            this.BtnEnter.Location = new System.Drawing.Point(903, 246);
-            this.BtnEnter.Name = "BtnEnter";
-            this.BtnEnter.Size = new System.Drawing.Size(357, 34);
-            this.BtnEnter.TabIndex = 7;
-            this.BtnEnter.Text = "Редактировать профиль";
-            this.BtnEnter.UseVisualStyleBackColor = false;
-            this.BtnEnter.Click += new System.EventHandler(this.BtnEnter_Click);
+            this.BtnEditProfile.BackColor = System.Drawing.SystemColors.GrayText;
+            this.BtnEditProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEditProfile.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnEditProfile.ForeColor = System.Drawing.Color.White;
+            this.BtnEditProfile.Location = new System.Drawing.Point(903, 246);
+            this.BtnEditProfile.Name = "BtnEditProfile";
+            this.BtnEditProfile.Size = new System.Drawing.Size(357, 34);
+            this.BtnEditProfile.TabIndex = 7;
+            this.BtnEditProfile.Text = "Редактировать профиль";
+            this.BtnEditProfile.UseVisualStyleBackColor = false;
+            this.BtnEditProfile.Click += new System.EventHandler(this.BtnEnter_Click);
             // 
             // LblBack
             // 
@@ -135,18 +138,19 @@
             this.LblBack.Text = "Выйти из системы";
             this.LblBack.Click += new System.EventHandler(this.LblBack_Click);
             // 
-            // button1
+            // BtnPlace
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.GrayText;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(117, 192);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(420, 34);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Разместить товар";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BtnPlace.BackColor = System.Drawing.SystemColors.GrayText;
+            this.BtnPlace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPlace.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnPlace.ForeColor = System.Drawing.Color.White;
+            this.BtnPlace.Location = new System.Drawing.Point(117, 192);
+            this.BtnPlace.Name = "BtnPlace";
+            this.BtnPlace.Size = new System.Drawing.Size(420, 34);
+            this.BtnPlace.TabIndex = 35;
+            this.BtnPlace.Text = "Разместить товар";
+            this.BtnPlace.UseVisualStyleBackColor = false;
+            this.BtnPlace.Click += new System.EventHandler(this.button1_Click);
             // 
             // BsTovars
             // 
@@ -183,9 +187,10 @@
             this.categoryDataGridViewTextBoxColumn,
             this.articleDataGridViewTextBoxColumn,
             this.countTovarDataGridViewTextBoxColumn,
-            this.countInStorageDataGridViewTextBoxColumn});
+            this.countInStorageDataGridViewTextBoxColumn,
+            this.whoseDataGridViewTextBoxColumn});
             this.DgvTovars.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DgvTovars.DataSource = this.BsTovars;
+            this.DgvTovars.DataSource = this.TovarsBS;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
@@ -216,55 +221,6 @@
             // tovarTableAdapter
             // 
             this.tovarTableAdapter.ClearBeforeFill = true;
-            // 
-            // idTovarDataGridViewTextBoxColumn
-            // 
-            this.idTovarDataGridViewTextBoxColumn.DataPropertyName = "Id_Tovar";
-            this.idTovarDataGridViewTextBoxColumn.HeaderText = "Id_Tovar";
-            this.idTovarDataGridViewTextBoxColumn.Name = "idTovarDataGridViewTextBoxColumn";
-            this.idTovarDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idTovarDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // titleDataGridViewTextBoxColumn
-            // 
-            this.titleDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
-            this.titleDataGridViewTextBoxColumn.HeaderText = "Название";
-            this.titleDataGridViewTextBoxColumn.MinimumWidth = 200;
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Категория";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
-            this.categoryDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // articleDataGridViewTextBoxColumn
-            // 
-            this.articleDataGridViewTextBoxColumn.DataPropertyName = "Article";
-            this.articleDataGridViewTextBoxColumn.HeaderText = "Артикль";
-            this.articleDataGridViewTextBoxColumn.Name = "articleDataGridViewTextBoxColumn";
-            this.articleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.articleDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // countTovarDataGridViewTextBoxColumn
-            // 
-            this.countTovarDataGridViewTextBoxColumn.DataPropertyName = "CountTovar";
-            this.countTovarDataGridViewTextBoxColumn.HeaderText = "В упаковке";
-            this.countTovarDataGridViewTextBoxColumn.Name = "countTovarDataGridViewTextBoxColumn";
-            this.countTovarDataGridViewTextBoxColumn.ReadOnly = true;
-            this.countTovarDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // countInStorageDataGridViewTextBoxColumn
-            // 
-            this.countInStorageDataGridViewTextBoxColumn.DataPropertyName = "CountInStorage";
-            this.countInStorageDataGridViewTextBoxColumn.HeaderText = "На складе";
-            this.countInStorageDataGridViewTextBoxColumn.Name = "countInStorageDataGridViewTextBoxColumn";
-            this.countInStorageDataGridViewTextBoxColumn.ReadOnly = true;
-            this.countInStorageDataGridViewTextBoxColumn.Width = 140;
             // 
             // RtbxFilter
             // 
@@ -301,6 +257,67 @@
             this.BtnFilter.Text = "…";
             this.BtnFilter.UseVisualStyleBackColor = false;
             // 
+            // TovarsBS
+            // 
+            this.TovarsBS.DataMember = "Tovar";
+            this.TovarsBS.DataSource = this.dBPracticeDataSet;
+            // 
+            // idTovarDataGridViewTextBoxColumn
+            // 
+            this.idTovarDataGridViewTextBoxColumn.DataPropertyName = "Id_Tovar";
+            this.idTovarDataGridViewTextBoxColumn.HeaderText = "Id_Tovar";
+            this.idTovarDataGridViewTextBoxColumn.Name = "idTovarDataGridViewTextBoxColumn";
+            this.idTovarDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idTovarDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "Категория";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.categoryDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // articleDataGridViewTextBoxColumn
+            // 
+            this.articleDataGridViewTextBoxColumn.DataPropertyName = "Article";
+            this.articleDataGridViewTextBoxColumn.HeaderText = "Артикль";
+            this.articleDataGridViewTextBoxColumn.Name = "articleDataGridViewTextBoxColumn";
+            this.articleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.articleDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // countTovarDataGridViewTextBoxColumn
+            // 
+            this.countTovarDataGridViewTextBoxColumn.DataPropertyName = "CountTovar";
+            this.countTovarDataGridViewTextBoxColumn.HeaderText = "В упаковке";
+            this.countTovarDataGridViewTextBoxColumn.Name = "countTovarDataGridViewTextBoxColumn";
+            this.countTovarDataGridViewTextBoxColumn.ReadOnly = true;
+            this.countTovarDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // countInStorageDataGridViewTextBoxColumn
+            // 
+            this.countInStorageDataGridViewTextBoxColumn.DataPropertyName = "CountInStorage";
+            this.countInStorageDataGridViewTextBoxColumn.HeaderText = "На складе";
+            this.countInStorageDataGridViewTextBoxColumn.Name = "countInStorageDataGridViewTextBoxColumn";
+            this.countInStorageDataGridViewTextBoxColumn.ReadOnly = true;
+            this.countInStorageDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // whoseDataGridViewTextBoxColumn
+            // 
+            this.whoseDataGridViewTextBoxColumn.DataPropertyName = "Whose";
+            this.whoseDataGridViewTextBoxColumn.HeaderText = "Whose";
+            this.whoseDataGridViewTextBoxColumn.Name = "whoseDataGridViewTextBoxColumn";
+            this.whoseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.whoseDataGridViewTextBoxColumn.Visible = false;
+            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,9 +329,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.RtbxFilter);
             this.Controls.Add(this.DgvTovars);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnPlace);
             this.Controls.Add(this.LblBack);
-            this.Controls.Add(this.BtnEnter);
+            this.Controls.Add(this.BtnEditProfile);
             this.Controls.Add(this.LblID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LblName);
@@ -334,6 +351,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BsTovars)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBPracticeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTovars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TovarsBS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,21 +362,23 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LblID;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button BtnEnter;
+        private System.Windows.Forms.Button BtnEditProfile;
         private System.Windows.Forms.Label LblBack;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnPlace;
         private System.Windows.Forms.BindingSource BsTovars;
         private System.Windows.Forms.DataGridView DgvTovars;
         private DBPracticeDataSet dBPracticeDataSet;
         private DBPracticeDataSetTableAdapters.TovarTableAdapter tovarTableAdapter;
+        private System.Windows.Forms.RichTextBox RtbxFilter;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button BtnFilter;
+        private System.Windows.Forms.BindingSource TovarsBS;
         private System.Windows.Forms.DataGridViewTextBoxColumn idTovarDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countTovarDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countInStorageDataGridViewTextBoxColumn;
-        private System.Windows.Forms.RichTextBox RtbxFilter;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button BtnFilter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn whoseDataGridViewTextBoxColumn;
     }
 }

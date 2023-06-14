@@ -78,5 +78,10 @@ namespace Practice2023
                 RtbxPassNew.UseSystemPasswordChar = true;
             }
         }
+
+        private void LblNonCurrent_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

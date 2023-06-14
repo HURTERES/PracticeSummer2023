@@ -969,6 +969,8 @@ namespace Practice2023 {
             
             private global::System.Data.DataColumn columnCountInStorage;
             
+            private global::System.Data.DataColumn columnWhose;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public TovarDataTable() {
@@ -1052,6 +1054,14 @@ namespace Practice2023 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn WhoseColumn {
+                get {
+                    return this.columnWhose;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1087,7 +1097,7 @@ namespace Practice2023 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TovarRow AddTovarRow(string Title, string Category, string Article, int CountTovar, string CountInStorage) {
+            public TovarRow AddTovarRow(string Title, string Category, string Article, int CountTovar, string CountInStorage, string Whose) {
                 TovarRow rowTovarRow = ((TovarRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1095,7 +1105,8 @@ namespace Practice2023 {
                         Category,
                         Article,
                         CountTovar,
-                        CountInStorage};
+                        CountInStorage,
+                        Whose};
                 rowTovarRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTovarRow);
                 return rowTovarRow;
@@ -1131,6 +1142,7 @@ namespace Practice2023 {
                 this.columnArticle = base.Columns["Article"];
                 this.columnCountTovar = base.Columns["CountTovar"];
                 this.columnCountInStorage = base.Columns["CountInStorage"];
+                this.columnWhose = base.Columns["Whose"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1148,6 +1160,8 @@ namespace Practice2023 {
                 base.Columns.Add(this.columnCountTovar);
                 this.columnCountInStorage = new global::System.Data.DataColumn("CountInStorage", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCountInStorage);
+                this.columnWhose = new global::System.Data.DataColumn("Whose", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWhose);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId_Tovar}, true));
                 this.columnId_Tovar.AutoIncrement = true;
@@ -1160,6 +1174,7 @@ namespace Practice2023 {
                 this.columnCategory.MaxLength = 50;
                 this.columnArticle.MaxLength = 50;
                 this.columnCountInStorage.MaxLength = 50;
+                this.columnWhose.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1607,6 +1622,22 @@ namespace Practice2023 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Whose {
+                get {
+                    try {
+                        return ((string)(this[this.tableTovar.WhoseColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Whose\' in table \'Tovar\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTovar.WhoseColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsTitleNull() {
                 return this.IsNull(this.tableTovar.TitleColumn);
             }
@@ -1663,6 +1694,18 @@ namespace Practice2023 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCountInStorageNull() {
                 this[this.tableTovar.CountInStorageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsWhoseNull() {
+                return this.IsNull(this.tableTovar.WhoseColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetWhoseNull() {
+                this[this.tableTovar.WhoseColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2652,10 +2695,11 @@ SELECT Id_User, Name, Role, Mail, Pass FROM [User] WHERE (Id_User = @Id_User)";
             tableMapping.ColumnMappings.Add("Article", "Article");
             tableMapping.ColumnMappings.Add("CountTovar", "CountTovar");
             tableMapping.ColumnMappings.Add("CountInStorage", "CountInStorage");
+            tableMapping.ColumnMappings.Add("Whose", "Whose");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Tovar] WHERE (([Id_Tovar] = @Original_Id_Tovar) AND ((@IsNull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)) AND ((@IsNull_Category = 1 AND [Category] IS NULL) OR ([Category] = @Original_Category)) AND ((@IsNull_Article = 1 AND [Article] IS NULL) OR ([Article] = @Original_Article)) AND ((@IsNull_CountTovar = 1 AND [CountTovar] IS NULL) OR ([CountTovar] = @Original_CountTovar)) AND ((@IsNull_CountInStorage = 1 AND [CountInStorage] IS NULL) OR ([CountInStorage] = @Original_CountInStorage)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Tovar] WHERE (([Id_Tovar] = @Original_Id_Tovar) AND ((@IsNull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)) AND ((@IsNull_Category = 1 AND [Category] IS NULL) OR ([Category] = @Original_Category)) AND ((@IsNull_Article = 1 AND [Article] IS NULL) OR ([Article] = @Original_Article)) AND ((@IsNull_CountTovar = 1 AND [CountTovar] IS NULL) OR ([CountTovar] = @Original_CountTovar)) AND ((@IsNull_CountInStorage = 1 AND [CountInStorage] IS NULL) OR ([CountInStorage] = @Original_CountInStorage)) AND ((@IsNull_Whose = 1 AND [Whose] IS NULL) OR ([Whose] = @Original_Whose)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id_Tovar", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id_Tovar", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Title", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2668,26 +2712,30 @@ SELECT Id_User, Name, Role, Mail, Pass FROM [User] WHERE (Id_User = @Id_User)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CountTovar", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountTovar", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CountInStorage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountInStorage", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CountInStorage", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountInStorage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Whose", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Whose", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Whose", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Whose", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Tovar] ([Title], [Category], [Article], [CountTovar], [CountInStorage]) VALUES (@Title, @Category, @Article, @CountTovar, @CountInStorage);
-SELECT Id_Tovar, Title, Category, Article, CountTovar, CountInStorage FROM Tovar WHERE (Id_Tovar = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Tovar] ([Title], [Category], [Article], [CountTovar], [CountInStorage], [Whose]) VALUES (@Title, @Category, @Article, @CountTovar, @CountInStorage, @Whose);
+SELECT Id_Tovar, Title, Category, Article, CountTovar, CountInStorage, Whose FROM Tovar WHERE (Id_Tovar = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Article", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Article", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CountTovar", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountTovar", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CountInStorage", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountInStorage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Whose", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Whose", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Tovar] SET [Title] = @Title, [Category] = @Category, [Article] = @Article, [CountTovar] = @CountTovar, [CountInStorage] = @CountInStorage WHERE (([Id_Tovar] = @Original_Id_Tovar) AND ((@IsNull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)) AND ((@IsNull_Category = 1 AND [Category] IS NULL) OR ([Category] = @Original_Category)) AND ((@IsNull_Article = 1 AND [Article] IS NULL) OR ([Article] = @Original_Article)) AND ((@IsNull_CountTovar = 1 AND [CountTovar] IS NULL) OR ([CountTovar] = @Original_CountTovar)) AND ((@IsNull_CountInStorage = 1 AND [CountInStorage] IS NULL) OR ([CountInStorage] = @Original_CountInStorage)));
-SELECT Id_Tovar, Title, Category, Article, CountTovar, CountInStorage FROM Tovar WHERE (Id_Tovar = @Id_Tovar)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Tovar] SET [Title] = @Title, [Category] = @Category, [Article] = @Article, [CountTovar] = @CountTovar, [CountInStorage] = @CountInStorage, [Whose] = @Whose WHERE (([Id_Tovar] = @Original_Id_Tovar) AND ((@IsNull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)) AND ((@IsNull_Category = 1 AND [Category] IS NULL) OR ([Category] = @Original_Category)) AND ((@IsNull_Article = 1 AND [Article] IS NULL) OR ([Article] = @Original_Article)) AND ((@IsNull_CountTovar = 1 AND [CountTovar] IS NULL) OR ([CountTovar] = @Original_CountTovar)) AND ((@IsNull_CountInStorage = 1 AND [CountInStorage] IS NULL) OR ([CountInStorage] = @Original_CountInStorage)) AND ((@IsNull_Whose = 1 AND [Whose] IS NULL) OR ([Whose] = @Original_Whose)));
+SELECT Id_Tovar, Title, Category, Article, CountTovar, CountInStorage, Whose FROM Tovar WHERE (Id_Tovar = @Id_Tovar)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Article", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Article", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CountTovar", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountTovar", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CountInStorage", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountInStorage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Whose", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Whose", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id_Tovar", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id_Tovar", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Title", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2699,6 +2747,8 @@ SELECT Id_Tovar, Title, Category, Article, CountTovar, CountInStorage FROM Tovar
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CountTovar", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountTovar", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CountInStorage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountInStorage", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CountInStorage", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountInStorage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Whose", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Whose", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Whose", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Whose", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_Tovar", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id_Tovar", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -2715,8 +2765,8 @@ SELECT Id_Tovar, Title, Category, Article, CountTovar, CountInStorage FROM Tovar
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id_Tovar, Title, Category, Article, CountTovar, CountInStorage FROM dbo.To" +
-                "var";
+            this._commandCollection[0].CommandText = "SELECT Id_Tovar, Title, Category, Article, CountTovar, CountInStorage, Whose FROM" +
+                " Tovar";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2777,7 +2827,7 @@ SELECT Id_Tovar, Title, Category, Article, CountTovar, CountInStorage FROM Tovar
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id_Tovar, string Original_Title, string Original_Category, string Original_Article, global::System.Nullable<int> Original_CountTovar, string Original_CountInStorage) {
+        public virtual int Delete(int Original_Id_Tovar, string Original_Title, string Original_Category, string Original_Article, global::System.Nullable<int> Original_CountTovar, string Original_CountInStorage, string Original_Whose) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id_Tovar));
             if ((Original_Title == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -2819,6 +2869,14 @@ SELECT Id_Tovar, Title, Category, Article, CountTovar, CountInStorage FROM Tovar
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_CountInStorage));
             }
+            if ((Original_Whose == null)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Whose));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2839,7 +2897,7 @@ SELECT Id_Tovar, Title, Category, Article, CountTovar, CountInStorage FROM Tovar
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Title, string Category, string Article, global::System.Nullable<int> CountTovar, string CountInStorage) {
+        public virtual int Insert(string Title, string Category, string Article, global::System.Nullable<int> CountTovar, string CountInStorage, string Whose) {
             if ((Title == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2870,6 +2928,12 @@ SELECT Id_Tovar, Title, Category, Article, CountTovar, CountInStorage FROM Tovar
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(CountInStorage));
             }
+            if ((Whose == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Whose));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2890,7 +2954,7 @@ SELECT Id_Tovar, Title, Category, Article, CountTovar, CountInStorage FROM Tovar
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Title, string Category, string Article, global::System.Nullable<int> CountTovar, string CountInStorage, int Original_Id_Tovar, string Original_Title, string Original_Category, string Original_Article, global::System.Nullable<int> Original_CountTovar, string Original_CountInStorage, int Id_Tovar) {
+        public virtual int Update(string Title, string Category, string Article, global::System.Nullable<int> CountTovar, string CountInStorage, string Whose, int Original_Id_Tovar, string Original_Title, string Original_Category, string Original_Article, global::System.Nullable<int> Original_CountTovar, string Original_CountInStorage, string Original_Whose, int Id_Tovar) {
             if ((Title == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2921,48 +2985,62 @@ SELECT Id_Tovar, Title, Category, Article, CountTovar, CountInStorage FROM Tovar
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(CountInStorage));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Id_Tovar));
-            if ((Original_Title == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            if ((Whose == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Title));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Whose));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Id_Tovar));
+            if ((Original_Title == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Title));
             }
             if ((Original_Category == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Category));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Category));
             }
             if ((Original_Article == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Article));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Article));
             }
             if ((Original_CountTovar.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_CountTovar.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_CountTovar.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             if ((Original_CountInStorage == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_CountInStorage));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_CountInStorage));
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Id_Tovar));
+            if ((Original_Whose == null)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Whose));
+            }
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Id_Tovar));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2983,8 +3061,8 @@ SELECT Id_Tovar, Title, Category, Article, CountTovar, CountInStorage FROM Tovar
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Title, string Category, string Article, global::System.Nullable<int> CountTovar, string CountInStorage, int Original_Id_Tovar, string Original_Title, string Original_Category, string Original_Article, global::System.Nullable<int> Original_CountTovar, string Original_CountInStorage) {
-            return this.Update(Title, Category, Article, CountTovar, CountInStorage, Original_Id_Tovar, Original_Title, Original_Category, Original_Article, Original_CountTovar, Original_CountInStorage, Original_Id_Tovar);
+        public virtual int Update(string Title, string Category, string Article, global::System.Nullable<int> CountTovar, string CountInStorage, string Whose, int Original_Id_Tovar, string Original_Title, string Original_Category, string Original_Article, global::System.Nullable<int> Original_CountTovar, string Original_CountInStorage, string Original_Whose) {
+            return this.Update(Title, Category, Article, CountTovar, CountInStorage, Whose, Original_Id_Tovar, Original_Title, Original_Category, Original_Article, Original_CountTovar, Original_CountInStorage, Original_Whose, Original_Id_Tovar);
         }
     }
     

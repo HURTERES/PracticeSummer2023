@@ -207,7 +207,7 @@
             this.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSave.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnSave.ForeColor = System.Drawing.Color.White;
-            this.BtnSave.Location = new System.Drawing.Point(278, 523);
+            this.BtnSave.Location = new System.Drawing.Point(273, 524);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(293, 34);
             this.BtnSave.TabIndex = 55;
@@ -221,7 +221,7 @@
             this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancel.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnCancel.ForeColor = System.Drawing.Color.White;
-            this.BtnCancel.Location = new System.Drawing.Point(662, 523);
+            this.BtnCancel.Location = new System.Drawing.Point(657, 524);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(293, 34);
             this.BtnCancel.TabIndex = 56;
@@ -234,11 +234,12 @@
             this.LblNonCurrent.BackColor = System.Drawing.Color.White;
             this.LblNonCurrent.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LblNonCurrent.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.LblNonCurrent.Location = new System.Drawing.Point(315, 474);
+            this.LblNonCurrent.Location = new System.Drawing.Point(310, 475);
             this.LblNonCurrent.Name = "LblNonCurrent";
             this.LblNonCurrent.Size = new System.Drawing.Size(600, 25);
             this.LblNonCurrent.TabIndex = 57;
             this.LblNonCurrent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblNonCurrent.Click += new System.EventHandler(this.LblNonCurrent_Click);
             // 
             // RtbxPassOld
             // 

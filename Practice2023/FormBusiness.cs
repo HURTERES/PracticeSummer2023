@@ -19,16 +19,8 @@ namespace Practice2023
             InitializeComponent();
         }
 
-        private void FormClient_Load(object sender, EventArgs e)
+        void FillForm()
         {
-         
-        }
-
-        private void FormClient_Load_1(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'dBPracticeDataSet.Tovar' table. You can move, or remove it, as needed.
-            DgvTovars.AllowUserToResizeColumns = false;
-            this.tovarTableAdapter.Fill(this.dBPracticeDataSet.Tovar);
             try
             {
                 SqlConnection Con = new SqlConnection(FormAuthoriz.TxtCon);
@@ -39,11 +31,22 @@ namespace Practice2023
                 if (Res.HasRows)
                 {
                     LblName.Text = Res["Name"].ToString();
-                    LblID.Text = "ID сотрудника: "+ (Res["IdPredp"].ToString());
+                    LblID.Text = "ID сотрудника: " + (Res["IdPredp"].ToString());
                 }
                 Con.Close();
             }
             catch { }
+        }
+
+        private void FormClient_Load_1(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dBPracticeDataSet.Tovar' table. You can move, or remove it, as needed.
+            DgvTovars.AllowUserToResizeColumns = false;
+            this.tovarTableAdapter.Fill(this.dBPracticeDataSet.Tovar);
+            FillForm();
+
+            TovarsBS.Filter = $"Whose = '{FormAuthoriz.IDUser}'";
+
         }
 
         private void LblBack_Click(object sender, EventArgs e)
@@ -54,7 +57,11 @@ namespace Practice2023
         private void BtnEnter_Click(object sender, EventArgs e)
         {
             FormEditUser Frm = new FormEditUser();
+            this.Hide();
             Frm.ShowDialog();
+            this.tovarTableAdapter.Fill(this.dBPracticeDataSet.Tovar);
+            FillForm();
+            this.Show();
         }
 
         private void RtbxFilter_Enter(object sender, EventArgs e)
@@ -76,12 +83,21 @@ namespace Practice2023
         private void RtbxFilter_TextChanged(object sender, EventArgs e)
         {
             if(RtbxFilter.Text!="Фильтр по названию")
-            BsTovars.Filter = $"Title like '%{RtbxFilter.Text}%'";
+           TovarsBS.Filter = $"Whose = '{FormAuthoriz.IDUser}' and Title like '%{RtbxFilter.Text}%'";
         }
 
         private void FormClient_Click(object sender, EventArgs e)
         {
             this.ActiveControl = null;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormAddTovar Frm = new FormAddTovar();
+            this.Hide();
+            Frm.ShowDialog();
+            this.tovarTableAdapter.Fill(this.dBPracticeDataSet.Tovar);
+            this.Show();
         }
     }
 }
