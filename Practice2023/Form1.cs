@@ -19,7 +19,8 @@ namespace Practice2023
     public partial class FormAuthoriz : Form
     {
         public static int Count = 0;
-        public static int IDUser=0;
+        public static int IDUser;
+        public static string Role = "1";
         public FormAuthoriz()
         {
             InitializeComponent();
@@ -60,6 +61,7 @@ namespace Practice2023
                     {
                         FormClient Frm = new FormClient();
                         this.Hide();
+                        Role = Res["Role"].ToString();
                         IDUser = int.Parse(Res["Id_User"].ToString());
                         Frm.ShowDialog();
                         Count = 0;
@@ -71,7 +73,31 @@ namespace Practice2023
                     }
                     if (Res["Role"].ToString() == "2")
                     {
-                        MessageBox.Show("-");
+                        FormForUser Frm= new FormForUser();
+                        this.Hide();
+                        Role = Res["Role"].ToString();
+                        IDUser = int.Parse(Res["Id_User"].ToString());
+                        Frm.ShowDialog();
+                        Count = 0;
+                        RtbxLogin.Text = "Введите логин";
+                        RtbxPass.Text = "Введите пароль";
+                        LblForgot.Visible = false;
+                        this.Show();
+                        this.ActiveControl = null;
+                    }
+                    if (Res["Role"].ToString() == "3")
+                    {
+                        FormClient Frm = new FormClient();
+                        this.Hide();
+                        Role = Res["Role"].ToString();
+                        IDUser = int.Parse(Res["Id_User"].ToString());
+                        Frm.ShowDialog();
+                        Count = 0;
+                        RtbxLogin.Text = "Введите логин";
+                        RtbxPass.Text = "Введите пароль";
+                        LblForgot.Visible = false;
+                        this.Show();
+                        this.ActiveControl = null;
                     }
                 }
                 else

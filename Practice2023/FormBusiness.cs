@@ -107,6 +107,12 @@ namespace Practice2023
 
         public static string Title, Category, Article, CountTovar, CountInStorage, IdTovar;
 
+        private void BtnHistory_Click(object sender, EventArgs e)
+        {
+            FormHistory Frm = new FormHistory();
+            Frm.ShowDialog();
+        }
+
         private void BtnEditTovar_Click(object sender, EventArgs e)
         {
             Timer.Enabled = true;
