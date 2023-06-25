@@ -350,7 +350,7 @@
             this.BtnHistory.Name = "BtnHistory";
             this.BtnHistory.Size = new System.Drawing.Size(349, 34);
             this.BtnHistory.TabIndex = 41;
-            this.BtnHistory.Text = "Просмотреть историю пераций";
+            this.BtnHistory.Text = "Просмотреть историю операций";
             this.BtnHistory.UseVisualStyleBackColor = false;
             this.BtnHistory.Click += new System.EventHandler(this.BtnHistory_Click);
             // 

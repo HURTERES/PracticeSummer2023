@@ -43,22 +43,20 @@ namespace Practice2023
             if (Res1.HasRows)
                 NumberTrans = int.Parse(Res1["NTrans"].ToString())+1;
             Con1.Close();
-           
 
-            SqlConnection Con2 = new SqlConnection(FormAuthoriz.TxtCon);
-            SqlCommand Cmd2 = new SqlCommand($" select CountInStorage, Whose from Tovar where Id_Tovar='{FormForUser.IdTovar}'", Con2);
-            Con2.Open();
-            SqlDataReader Res2 = Cmd2.ExecuteReader();
-            Res2.Read();
-            if (Res2.HasRows)
-            {
-                CountInStorage = int.Parse(Res2["CountInStorage"].ToString());
-                CountInStorage1 = int.Parse(Res2["CountInStorage"].ToString());
-                Whosen = (Res2["Whose"].ToString());
-            }
 
-            Con2.Close();
+            //SqlConnection Con2 = new SqlConnection(FormAuthoriz.TxtCon);
+            //SqlCommand Cmd2 = new SqlCommand($" select CountInStorage, Whose from Tovar where Id_Tovar='{FormForUser.IdTovar}'", Con2);
+            //Con2.Open();
+            //SqlDataReader Res2 = Cmd2.ExecuteReader();
+            //Res2.Read();
+            //if (Res2.HasRows)
+            //{
+            //    CountInStorage = int.Parse(Res2["CountInStorage"].ToString());
+            //    Whosen = (Res2["Whose"].ToString());
+            //}
 
+            //Con2.Close();
 
 
 
@@ -96,6 +94,7 @@ RtbxInStorage.SelectionAlignment = HorizontalAlignment.Center;
                 RtbxCountTovar.Text=FormClient.CountTovar;
                 RtbxInStorage.Text=FormClient.CountInStorage;
                 CmbCategory.Text=FormClient.Category;
+                CountInStorage = int.Parse(FormClient.CountInStorage);
                 RtbxInStorage.SelectionAlignment = HorizontalAlignment.Center;
                 LblForm.Text = "Edit Product";
                 BtnSave.Text = "Сохранить изменения";
@@ -156,6 +155,7 @@ RtbxInStorage.SelectionAlignment = HorizontalAlignment.Center;
         private void FormAddTovar_Shown(object sender, EventArgs e)
         {
             this.ActiveControl = null;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -248,7 +248,7 @@ RtbxInStorage.SelectionAlignment = HorizontalAlignment.Center;
             }
 
             if (LblHowMany.Text == "На складе(ед):")
-            { 
+            {
                 CountInStorage1 = CountInStorage - int.Parse(RtbxInStorage.Text);
                 SqlConnection Con = new SqlConnection(FormAuthoriz.TxtCon);
                 SqlCommand cmd = new SqlCommand($"update Tovar set CountInStorage={RtbxInStorage.Text}, Title='{RtbxName.Text}', Category='{CmbCategory.Text}', Article='{RtbxArticle.Text}', CountTovar='{RtbxCountTovar.Text}' where Id_Tovar='{ID}'", Con);

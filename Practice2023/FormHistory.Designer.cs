@@ -35,6 +35,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHistory));
             this.transTableAdapter = new Practice2023.DBPracticeDataSetTableAdapters.TransTableAdapter();
             this.DgvTovars = new System.Windows.Forms.DataGridView();
+            this.BsHistory = new System.Windows.Forms.BindingSource(this.components);
             this.dBPracticeDataSet = new Practice2023.DBPracticeDataSet();
             this.idTransDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberTransDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,10 +44,10 @@
             this.howManyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.whoCompleteTransDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BsHistory = new System.Windows.Forms.BindingSource(this.components);
+            this.BtnHistory = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTovars)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBPracticeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BsHistory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBPracticeDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // transTableAdapter
@@ -110,6 +111,11 @@
             this.DgvTovars.TabIndex = 48;
             this.DgvTovars.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTovars_CellDoubleClick);
             // 
+            // BsHistory
+            // 
+            this.BsHistory.DataMember = "Trans";
+            this.BsHistory.DataSource = this.dBPracticeDataSet;
+            // 
             // dBPracticeDataSet
             // 
             this.dBPracticeDataSet.DataSetName = "DBPracticeDataSet";
@@ -125,11 +131,11 @@
             // 
             // numberTransDataGridViewTextBoxColumn
             // 
+            this.numberTransDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.numberTransDataGridViewTextBoxColumn.DataPropertyName = "NumberTrans";
             this.numberTransDataGridViewTextBoxColumn.HeaderText = "№ Транзакции";
             this.numberTransDataGridViewTextBoxColumn.Name = "numberTransDataGridViewTextBoxColumn";
             this.numberTransDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numberTransDataGridViewTextBoxColumn.Width = 160;
             // 
             // whatBoughtDataGridViewTextBoxColumn
             // 
@@ -171,16 +177,27 @@
             this.stateDataGridViewTextBoxColumn.ReadOnly = true;
             this.stateDataGridViewTextBoxColumn.Width = 150;
             // 
-            // BsHistory
+            // BtnHistory
             // 
-            this.BsHistory.DataMember = "Trans";
-            this.BsHistory.DataSource = this.dBPracticeDataSet;
+            this.BtnHistory.BackColor = System.Drawing.SystemColors.GrayText;
+            this.BtnHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnHistory.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnHistory.ForeColor = System.Drawing.Color.White;
+            this.BtnHistory.Location = new System.Drawing.Point(0, 404);
+            this.BtnHistory.Name = "BtnHistory";
+            this.BtnHistory.Size = new System.Drawing.Size(833, 34);
+            this.BtnHistory.TabIndex = 49;
+            this.BtnHistory.Text = "Сохранить историю операций в файл";
+            this.BtnHistory.UseVisualStyleBackColor = false;
+            this.BtnHistory.Click += new System.EventHandler(this.BtnHistory_Click);
             // 
             // FormHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(833, 438);
+            this.Controls.Add(this.BtnHistory);
             this.Controls.Add(this.DgvTovars);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -192,8 +209,8 @@
             this.Text = "СУБД \"OK_Magazine\" > История покупок";
             this.Load += new System.EventHandler(this.FormHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvTovars)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBPracticeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BsHistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBPracticeDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -210,5 +227,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn howManyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn whoCompleteTransDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button BtnHistory;
     }
 }
