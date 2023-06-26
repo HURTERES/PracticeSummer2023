@@ -316,6 +316,8 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1172, 706);
+            this.MinimumSize = new System.Drawing.Size(1172, 706);
             this.Name = "FormReg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "СУБД \"OK_Magazine\" > Регистрация";

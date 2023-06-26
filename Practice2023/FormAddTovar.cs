@@ -78,7 +78,8 @@ namespace Practice2023
                 CmbCategory.Enabled = false;
                 RtbxInStorage.Text = "0";
                 RtbxInStorage.ReadOnly = true;
-RtbxInStorage.SelectionAlignment = HorizontalAlignment.Center;
+                CountInStorage = int.Parse(FormForUser.CountInStorage);
+                RtbxInStorage.SelectionAlignment = HorizontalAlignment.Center;
                 LblForm.Text = "Buy Product";
                 BtnSave.Text = "Приобрести";
                 BtnCancel.Text = "Отменить операцию";
@@ -137,7 +138,7 @@ RtbxInStorage.SelectionAlignment = HorizontalAlignment.Center;
         {
             if (LblHowMany.Text == "Приобрести(ед):")
             {
-                if (CountInStorage1 > int.Parse(RtbxInStorage.Text))
+                if (CountInStorage > int.Parse(RtbxInStorage.Text))
                 {
                     int N = int.Parse(RtbxInStorage.Text);
                     RtbxInStorage.Text = (N + 1).ToString();
